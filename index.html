@@ -85,6 +85,58 @@ footer{min-height:230px;background:#043b33;padding:65px 5vw 28px;display:grid;gr
  .footer-col{padding-left:14px}.footer-brand{font-size:14px}.copyright{flex-direction:column;gap:9px}
 }
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Signature luxury CTA */
+.view-link{position:relative;gap:32px;padding:15px 18px 15px 22px;border:0;background:transparent;isolation:isolate}
+.view-link:before{content:"";position:absolute;inset:0;border:1px solid rgba(201,170,112,.8);transform:skewX(-8deg);z-index:-1;transition:background .35s,transform .35s,border-color .35s}
+.view-link:after{content:"";position:absolute;left:-5px;bottom:-5px;width:22px;height:1px;background:var(--ivory);transition:width .35s}
+.view-link span{display:grid;place-items:center;width:27px;height:27px;border:1px solid rgba(201,170,112,.65);border-radius:50%;font-size:14px}
+.view-link:hover{background:transparent;color:#fff}
+.view-link:hover:before{background:rgba(201,170,112,.17);transform:skewX(0deg);border-color:var(--gold)}
+.view-link:hover:after{width:42px}
+.hero h1{font-size:clamp(48px,9vw,118px);letter-spacing:.15em;line-height:1.05}
+.hero h1 span{display:inline;color:var(--gold);font-size:1em;letter-spacing:.15em;margin:0 0 0 .18em}
+.hero-center{padding:80px 20px 40px}
+.scroll-cue{font-size:0;gap:0}
+.scroll-cue:before{content:"";width:13px;height:13px;border-right:1px solid var(--gold);border-bottom:1px solid var(--gold);transform:rotate(45deg)}
+.scroll-cue:after{display:none}
+.detail-view{position:fixed;z-index:60;inset:0;background:#050807;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(18px);transition:opacity .35s,visibility .35s,transform .35s}
+.detail-view.open{opacity:1;visibility:visible;transform:translateY(0)}
+.detail-top{height:72px;position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;background:rgba(4,20,17,.93);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)}
+.detail-back{display:flex;align-items:center;gap:12px;background:none;border:0;text-transform:uppercase;letter-spacing:.18em;font-size:9px;cursor:pointer}
+.detail-back span{font-size:19px;color:var(--gold)}
+.detail-wordmark{letter-spacing:.28em;font-size:14px}
+.detail-wordmark b{font-weight:300;color:var(--gold)}
+.detail-hero{min-height:65vh;position:relative;display:flex;align-items:flex-end;padding:8vw 7vw;overflow:hidden}
+.detail-hero video,.detail-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;filter:brightness(.48)}
+.detail-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.75),transparent 85%);z-index:1}
+.detail-hero-copy{position:relative;z-index:2;max-width:900px}
+.detail-kicker{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.detail-hero h2{font:clamp(54px,9vw,112px)/.95 "Italiana",serif;font-weight:400}
+.detail-content{max-width:1250px;margin:auto;padding:85px 7vw 100px}
+.detail-intro{display:grid;grid-template-columns:.8fr 1.2fr;gap:7vw;align-items:start;padding-bottom:65px;border-bottom:1px solid rgba(255,255,255,.16)}
+.detail-intro h3{font:400 clamp(30px,4vw,48px)/1.12 "Italiana",serif}
+.detail-intro p{font-size:13px;line-height:2;color:#bfc4bd;max-width:660px}
+.detail-gallery{display:grid;grid-template-columns:1.15fr .85fr;gap:15px;margin-top:30px}
+.detail-gallery img{width:100%;height:390px;object-fit:cover;filter:brightness(.86)}
+.detail-gallery img:nth-child(2){height:310px;margin-top:80px}
+.detail-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:55px}
+.detail-fact{border-top:1px solid var(--gold);padding-top:17px}
+.detail-fact strong{font:400 24px "Italiana",serif;display:block;margin-bottom:10px}
+.detail-fact span{font-size:11px;line-height:1.8;color:#aeb8b0}
+.detail-contact{margin-top:70px;padding:32px;border:1px solid rgba(201,170,112,.45);display:flex;justify-content:space-between;align-items:center;gap:20px}
+.detail-contact h3{font:400 30px "Italiana",serif}
+.detail-contact a{font-size:9px;letter-spacing:.15em;text-transform:uppercase;border-bottom:1px solid var(--gold);padding-bottom:9px}
+@media(max-width:700px){
+ .hero h1{font-size:clamp(34px,10vw,64px);letter-spacing:.09em}.hero h1 span{letter-spacing:.09em}
+ .detail-top{height:62px;padding:0 20px}.detail-wordmark{font-size:11px}
+ .detail-hero{min-height:52vh;padding:35px 24px}.detail-hero h2{font-size:clamp(48px,14vw,76px)}
+ .detail-content{padding:55px 24px 65px}.detail-intro{grid-template-columns:1fr;gap:20px;padding-bottom:38px}
+ .detail-gallery{grid-template-columns:1fr;gap:12px}.detail-gallery img,.detail-gallery img:nth-child(2){height:260px;margin:0}
+ .detail-facts{grid-template-columns:1fr;gap:25px;margin-top:38px}
+ .detail-contact{padding:24px;align-items:flex-start;flex-direction:column}.detail-contact h3{font-size:26px}
+}
+
 </style>
 </head>
 <body>
@@ -105,66 +157,64 @@ footer{min-height:230px;background:#043b33;padding:65px 5vw 28px;display:grid;gr
 <main>
   <section class="slide hero" id="home">
     <video class="media" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2200&q=90">
-      <source src="hero.mp4" type="video/mp4">
+      <source src="one.mp4" type="video/mp4">
     </video>
     <div class="veil"></div>
-    <div class="hero-center">
-      <div class="overline">Kishangarh · Rajasthan</div>
-      <h1>THE ART OF<span>STONE</span></h1>
-      <div class="hero-tag">Nature’s masterpiece. Our legacy.</div>
-    </div>
+    <div class="hero-center"><h1>SAI <span>GRANITO</span></h1></div>
     <a class="scroll-cue" href="#mastery">Discover</a>
-    <div class="side-brand">A Heda Group Company</div>
+    
   </section>
 
-  <section class="slide mastery" id="mastery">
-    <img class="media" src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=2200&q=90" alt="Sculptural contemporary architecture" loading="lazy">
+  <section class="slide mastery" id="mastery"><video class="media" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="two.mp4" type="video/mp4"></video>
     <div class="veil"></div>
-    <div class="centered reveal"><div class="slide-label">A legacy of excellence</div><h2 class="slide-title">MASTERY</h2><a class="view-link" href="#legacy">View Details <span>↗</span></a></div>
-    <div class="slide-index">01 / 05</div><div class="bottom-caption">Crafted through experience</div>
+    <div class="centered reveal"><h2 class="slide-title">MASTERY</h2><button class="view-link detail-trigger" type="button" data-detail="mastery">Discover <span>↗</span></button></div>
+    
   </section>
 
-  <section class="slide stone" id="stone">
-    <img class="media" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2200&q=90" alt="Refined stone surfaces in a luxury interior" loading="lazy">
+  <section class="slide stone" id="stone"><video class="media" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="three.mp4" type="video/mp4"></video>
     <div class="veil"></div>
-    <div class="centered reveal"><div class="slide-label">Rare by nature</div><h2 class="slide-title">STONE</h2><a class="view-link" href="#collections">View Details <span>↗</span></a></div>
-    <div class="slide-index">02 / 05</div><div class="bottom-caption">A world of natural surfaces</div>
+    <div class="centered reveal"><h2 class="slide-title">STONE</h2><button class="view-link detail-trigger" type="button" data-detail="stone">Discover <span>↗</span></button></div>
+    
   </section>
 
-  <section class="slide art" id="art">
-    <img class="media" src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2200&q=90" alt="Artful architectural material composition" loading="lazy">
+  <section class="slide art" id="art"><video class="media" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="four.mp4" type="video/mp4"></video>
     <div class="veil"></div>
-    <div class="centered reveal"><div class="slide-label">Exploring the lexicon</div><h2 class="slide-title">ART</h2><a class="view-link" href="#craft">View Details <span>↗</span></a></div>
-    <div class="slide-index">03 / 05</div><div class="bottom-caption">Where material becomes expression</div>
+    <div class="centered reveal"><h2 class="slide-title">ART</h2><button class="view-link detail-trigger" type="button" data-detail="art">Discover <span>↗</span></button></div>
+    
   </section>
 
-  <section class="slide material" id="material">
-    <img class="media" src="https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=2200&q=90" alt="Natural stone and material textures" loading="lazy">
+  <section class="slide material" id="material"><video class="media" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="five.mp4" type="video/mp4"></video>
     <div class="veil"></div>
-    <div class="centered reveal"><div class="slide-label">The language of surfaces</div><h2 class="slide-title small">MATERIAL<br>ALCHEMISTS</h2><a class="view-link" href="#collections">View Details <span>↗</span></a></div>
-    <div class="slide-index">04 / 05</div><div class="bottom-caption">Nature, selected and refined</div>
+    <div class="centered reveal"><h2 class="slide-title small">MATERIAL<br>ALCHEMISTS</h2><button class="view-link detail-trigger" type="button" data-detail="material">Discover <span>↗</span></button></div>
+    
   </section>
 
-  <section class="slide legacy" id="legacy">
-    <img class="media" src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=2200&q=90" alt="Timeless architecture at golden hour" loading="lazy">
+  <section class="slide legacy" id="legacy"><video class="media" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="two.mp4" type="video/mp4"></video>
     <div class="veil"></div>
-    <div class="centered reveal"><div class="slide-label">Since 1982 · Kishangarh</div><h2 class="slide-title small">A LIVING<br>LEGACY</h2><a class="view-link" href="#contact">View Details <span>↗</span></a></div>
-    <div class="slide-index">05 / 05</div><div class="bottom-caption">Sai Granito India · Heda Group</div>
+    <div class="centered reveal"><h2 class="slide-title small">A LIVING<br>LEGACY</h2><button class="view-link detail-trigger" type="button" data-detail="legacy">Discover <span>↗</span></button></div>
+    
   </section>
 
-  <section class="slide" id="collections" style="min-height:72svh;height:72svh">
-    <img class="media" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2200&q=90" alt="Elegant marble interior" loading="lazy">
+  <section class="slide" id="collections" style="min-height:72svh;height:72svh"><video class="media" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="three.mp4" type="video/mp4"></video>
     <div class="veil"></div>
-    <div class="centered reveal"><div class="slide-label">Explore the collections</div><h2 class="slide-title small">FIND YOUR<br>STONE.</h2><a class="view-link" href="#contact">View Collections <span>↗</span></a></div>
-    <div class="slide-index">COLLECTIONS</div>
+    <div class="centered reveal"><h2 class="slide-title small">FIND YOUR<br>STONE.</h2><button class="view-link detail-trigger" type="button" data-detail="collections">Discover <span>↗</span></button></div>
+    
   </section>
 
-  <section class="slide" id="craft" style="min-height:66svh;height:66svh">
-    <img class="media" src="https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=2200&q=90" alt="Stone craftsmanship detail" loading="lazy">
+  <section class="slide" id="craft" style="min-height:66svh;height:66svh"><video class="media" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="four.mp4" type="video/mp4"></video>
     <div class="veil"></div>
-    <div class="centered reveal"><div class="slide-label">Precision · Passion · Permanence</div><h2 class="slide-title small">BEYOND<br>THE SURFACE</h2><a class="view-link" href="#contact">View Details <span>↗</span></a></div>
+    <div class="centered reveal"><h2 class="slide-title small">BEYOND<br>THE SURFACE</h2><button class="view-link detail-trigger" type="button" data-detail="craft">Discover <span>↗</span></button></div>
   </section>
 </main>
+
+
+<div class="detail-view" id="detailView" aria-hidden="true">
+  <div class="detail-top">
+    <button class="detail-back" id="detailBack" type="button"><span>←</span> Back to experience</button>
+    <div class="detail-wordmark">SAI <b>GRANITO</b></div>
+  </div>
+  <div id="detailMount"></div>
+</div>
 
 <footer id="contact">
   <div class="footer-brand">SAI GRANITO<span>THE ART OF STONE</span></div>
@@ -186,6 +236,87 @@ window.addEventListener('scroll',()=>bar.classList.toggle('scrolled',window.scro
 document.getElementById('year').textContent=new Date().getFullYear();
 const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');observer.unobserve(e.target)}}),{threshold:.18});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+const detailData = {
+  mastery: {
+    title:"MASTERY", kicker:"The Sai Granito approach",
+    heading:"The discipline behind every surface.",
+    text:"Since 1982, Sai Granito India has grown from a clear vision into a name shaped by experience, material understanding and a commitment to refinement. Our approach brings together careful selection, modern processing and an enduring respect for the natural character of stone.",
+    facts:[["Selection","Material considered for its character and suitability."],["Precision","Finishing guided by care and consistency."],["Experience","A legacy shaped over decades."]],
+    images:["https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1400&q=85","https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1200&q=85"], video:"two.mp4"
+  },
+  stone: {
+    title:"STONE", kicker:"The natural collection",
+    heading:"Nature, unrepeatable by design.",
+    text:"Every block of natural stone carries a pattern formed over time. From expressive marble to durable granite and distinctive imported surfaces, each material brings its own movement, tone and personality to architectural spaces. Choose by colour, veining, finish and the feeling you want a space to express.",
+    facts:[["Marble","Expressive veining and timeless elegance."],["Granite","Strength, depth and distinctive pattern."],["Italian & exotic","Individual colours and rare visual character."]],
+    images:["https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85","https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=85"], video:"three.mp4"
+  },
+  art: {
+    title:"ART", kicker:"Stone as a creative medium",
+    heading:"Where material becomes expression.",
+    text:"Stone is more than a building material: it is a medium for designers, architects and craftspeople. Veining, texture, light and proportion come together to create spaces that feel individual and enduring. From a dramatic feature wall to a quiet architectural detail, the material can become part of the story.",
+    facts:[["Natural character","Every slab has its own visual language."],["Design expression","A considered role for stone in a space."],["Craft & detail","The finish completes the composition."]],
+    images:["https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=85","https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=85"], video:"four.mp4"
+  },
+  material: {
+    title:"MATERIAL ALCHEMISTS", kicker:"A closer look at surfaces",
+    heading:"A study in texture, tone and finish.",
+    text:"A surface changes how a room feels. Polished, honed and textured finishes respond to light in different ways, while colour and veining can create calm, drama or a strong architectural statement. The right selection begins with how a space will be used and experienced.",
+    facts:[["Surface & light","Understand reflection, depth and tone."],["Texture & touch","Choose a finish that suits the design."],["Made for the space","Balance aesthetic and practical needs."]],
+    images:["https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=1400&q=85","https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85"], video:"five.mp4"
+  },
+  legacy: {
+    title:"A LIVING LEGACY", kicker:"Since 1982 · Kishangarh, Rajasthan",
+    heading:"A story rooted in Kishangarh.",
+    text:"Sai Granito India traces its beginnings to 1982, when Shri Bal Mukund ji Heda envisioned a company dedicated to excellence in stone. Based in Kishangarh, Rajasthan, and part of the Heda Group, the company continues to build on that foundation of quality, vision and long-term relationships.",
+    facts:[["1982","The beginning of the Sai Granito journey."],["Kishangarh","A home in Rajasthan’s marble city."],["Heda Group","A legacy of vision and enterprise."]],
+    images:["https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1400&q=85","https://images.unsplash.com/photo-1503387762-592dead58ef4?auto=format&fit=crop&w=1200&q=85"], video:"two.mp4"
+  },
+  collections: {
+    title:"THE COLLECTIONS", kicker:"Explore natural stone",
+    heading:"Find the stone that defines your space.",
+    text:"Marble offers distinctive veining and timeless elegance; granite brings strength and character; Italian and exotic stones introduce unique colours, patterns and visual depth. Share your project requirements with the team to explore suitable materials and available selections.",
+    facts:[["Marble","Distinctive movement and classic appeal."],["Granite","Characterful surfaces with enduring strength."],["Italian & exotic","Memorable patterns and colours."]],
+    images:["https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85","https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=85"], video:"three.mp4"
+  },
+  craft: {
+    title:"BEYOND THE SURFACE", kicker:"Craft & technology",
+    heading:"Precision that respects nature.",
+    text:"Great stonework starts with the right material and continues through careful cutting, finishing and quality checks. Technology helps achieve consistency, while skilled attention protects the individuality that makes every natural slab different.",
+    facts:[["Processing","Careful steps from slab to finished surface."],["Finishing","Details that influence look and feel."],["Quality","Attention to consistency and presentation."]],
+    images:["https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1400&q=85","https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=85"], video:"four.mp4"
+  }
+};
+const detailView=document.getElementById('detailView');
+const detailMount=document.getElementById('detailMount');
+const openDetail=(key)=>{
+  const d=detailData[key]; if(!d)return;
+  detailMount.innerHTML=`
+    <section class="detail-hero">
+      <video autoplay muted loop playsinline><source src="${d.video}" type="video/mp4"></video>
+      <div class="detail-hero-copy"><div class="detail-kicker">${d.kicker}</div><h2>${d.title}</h2></div>
+    </section>
+    <section class="detail-content">
+      <div class="detail-intro"><h3>${d.heading}</h3><p>${d.text}</p></div>
+      <div class="detail-gallery"><img src="${d.images[0]}" alt="${d.title} — natural stone and architecture" loading="lazy"><img src="${d.images[1]}" alt="${d.title} — material detail" loading="lazy"></div>
+      <div class="detail-facts">${d.facts.map(f=>`<div class="detail-fact"><strong>${f[0]}</strong><span>${f[1]}</span></div>`).join('')}</div>
+      <div class="detail-contact"><h3>Have a project in mind?</h3><a href="#contact" class="detail-enquire">Enquire with Sai Granito ↗</a></div>
+    </section>`;
+  detailView.classList.add('open'); detailView.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden'; detailView.scrollTop=0;
+  history.pushState({detail:key},'',`#detail-${key}`);
+};
+const closeDetail=()=>{
+  detailView.classList.remove('open');detailView.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';detailMount.innerHTML='';
+  if(location.hash.startsWith('#detail-'))history.replaceState({},'',location.pathname+location.search);
+};
+document.querySelectorAll('.detail-trigger').forEach(btn=>btn.addEventListener('click',()=>openDetail(btn.dataset.detail)));
+document.getElementById('detailBack').addEventListener('click',closeDetail);
+detailView.addEventListener('click',e=>{if(e.target.closest('.detail-enquire')){closeDetail();setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),40)}});
+window.addEventListener('popstate',()=>{if(detailView.classList.contains('open'))closeDetail()});
+
 </script>
 </body>
 </html>
