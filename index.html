@@ -1,239 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="theme-color" content="#071b19" />
-<title>Sai Granito India | The Art of Stone</title>
-<meta name="description" content="Sai Granito India — premium natural stone, granite and marble from Kishangarh, Rajasthan. Part of the Heda Group, established in 1982." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#061a17">
+<title>SAI GRANITO — The Art of Stone</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Italiana&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#080b0b;--green:#073d36;--gold:#c7a66a;--cream:#f0ece4;--muted:#b7b8b2}
+:root{--night:#061714;--gold:#c9aa70;--ivory:#f3eee5;--line:rgba(243,238,229,.32)}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--ink);color:#fff;font-family:"DM Sans",sans-serif;font-weight:300}
+html{scroll-behavior:smooth;scroll-snap-type:y proximity;background:#050807}
+body{background:#050807;color:var(--ivory);font-family:"DM Sans",sans-serif;font-weight:300}
 a{color:inherit;text-decoration:none}
-button{font:inherit}
-.navbar{height:68px;position:absolute;inset:0 0 auto;z-index:10;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 5vw;background:linear-gradient(180deg,rgba(3,39,34,.94),rgba(3,39,34,.55),transparent)}
-.brand{font-size:clamp(17px,2vw,24px);letter-spacing:.34em;font-weight:400;white-space:nowrap}
-.brand span{color:var(--gold)}
-.menu-btn{background:none;border:0;color:#fff;cursor:pointer;width:34px;display:grid;gap:6px;padding:8px 0}
-.menu-btn i{height:1px;background:#d7d9d5;width:24px;display:block;transition:.3s}
-.menu-btn:hover i:first-child{width:30px}
-.nav-right{justify-self:end;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#e2e3df}
-.hero{min-height:650px;height:100svh;max-height:950px;position:relative;display:grid;place-items:center;overflow:hidden;background:#07100f}
-.hero-media,.hero-shade{position:absolute;inset:0;width:100%;height:100%}
-.hero-media{object-fit:cover;filter:brightness(.62);opacity:.92}
-.hero-shade{background:linear-gradient(90deg,rgba(0,0,0,.57),rgba(0,0,0,.12) 55%,rgba(0,0,0,.5)),linear-gradient(0deg,rgba(0,0,0,.6),transparent 55%,rgba(0,0,0,.2))}
-.hero-content{position:relative;z-index:2;text-align:center;padding:100px 20px 50px;animation:rise 1.1s ease both}
-.eyebrow{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#e3d6bd;margin-bottom:18px}
-.hero h1{font-family:"Playfair Display",serif;font-size:clamp(48px,9vw,108px);font-weight:400;letter-spacing:.015em;line-height:.98}
-.hero h1 em{font-style:normal;color:var(--gold)}
-.hero-sub{font-size:12px;letter-spacing:.13em;color:#e5e4df;margin-top:22px}
-.hero-actions{margin-top:36px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.btn{border:1px solid rgba(255,255,255,.52);padding:13px 21px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;background:rgba(255,255,255,.08);transition:.25s;cursor:pointer}
-.btn.primary{background:var(--gold);border-color:var(--gold);color:#111}
-.btn:hover{background:#fff;color:#111;border-color:#fff;transform:translateY(-2px)}
-.scroll-note{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:#ddd;display:flex;align-items:center;gap:12px}
-.scroll-note:after{content:"";height:28px;width:1px;background:var(--gold);display:block}
-.side-mark{position:absolute;right:4.4%;top:50%;writing-mode:vertical-rl;font-size:9px;letter-spacing:.28em;color:#c5c6c0;z-index:2}
-.side-mark:after{content:"";display:inline-block;height:55px;width:1px;background:#aaa;margin-top:15px;align-self:center}
-.menu-panel{position:fixed;z-index:30;inset:0;background:rgba(3,20,18,.97);display:flex;align-items:center;justify-content:center;transform:translateY(-105%);transition:transform .55s cubic-bezier(.7,0,.2,1);padding:35px}
-.menu-panel.open{transform:translateY(0)}
-.menu-close{position:absolute;top:25px;left:5vw;border:0;background:none;color:#fff;font-size:30px;font-weight:200;cursor:pointer}
-.menu-links{display:grid;text-align:center;gap:18px}
-.menu-links a{font:clamp(30px,6vw,58px) "Playfair Display",serif;color:#f0ece4;transition:color .2s}
-.menu-links a:hover{color:var(--gold)}
-.intro{min-height:410px;display:grid;place-items:center;text-align:center;padding:100px 22px;background:#050606;position:relative;overflow:hidden}
-.intro:before{content:"SG";position:absolute;font:clamp(180px,30vw,400px) "Playfair Display",serif;color:rgba(255,255,255,.025);letter-spacing:-.08em}
-.intro-inner{position:relative;max-width:780px}
-.kicker{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
-.intro h2,.section-heading h2{font:400 clamp(38px,6vw,70px) "Playfair Display",serif;line-height:1.05}
-.intro p{max-width:600px;margin:22px auto 0;color:#b7bbb6;font-size:13px;line-height:1.9}
-.text-link{display:inline-flex;gap:14px;align-items:center;margin-top:28px;font-size:10px;text-transform:uppercase;letter-spacing:.18em;border-bottom:1px solid var(--gold);padding-bottom:8px}
-.text-link span{color:var(--gold);font-size:16px}
-.feature{min-height:520px;display:grid;grid-template-columns:1fr 1fr;background:#101514}
-.feature-image{min-height:430px;overflow:hidden}
-.feature-image img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.76);transition:transform .8s}
-.feature:hover .feature-image img{transform:scale(1.035)}
-.feature-copy{display:flex;flex-direction:column;justify-content:center;padding:clamp(35px,7vw,100px)}
-.feature-copy .kicker{margin-bottom:17px}
-.feature-copy h2{font:400 clamp(36px,5vw,62px) "Playfair Display",serif;line-height:1.08}
-.feature-copy p{font-size:13px;color:#b6bcb7;line-height:1.9;max-width:420px;margin-top:22px}
-.collections{padding:100px 5vw 110px;background:#e9e5dd;color:#151817}
-.section-heading{text-align:center;margin:0 auto 48px}
-.section-heading .kicker{color:#6d5735}
-.section-heading p{font-size:12px;color:#646762;margin-top:14px}
-.collection-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1300px;margin:auto}
-.collection-card{height:420px;position:relative;overflow:hidden;background:#222}
-.collection-card img{width:100%;height:100%;object-fit:cover;transition:transform .7s;filter:brightness(.76)}
-.collection-card:hover img{transform:scale(1.055)}
-.collection-card:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.82))}
-.collection-info{position:absolute;z-index:1;bottom:27px;left:25px;color:white}
-.collection-info small{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#e3c58f}
-.collection-info h3{font:400 31px "Playfair Display",serif;margin-top:6px}
-.collection-info span{font-size:10px;letter-spacing:.12em;display:block;margin-top:10px}
-.story{min-height:510px;display:grid;grid-template-columns:1.1fr .9fr;background:#0b1715}
-.story-photo{min-height:420px}
-.story-photo img{height:100%;width:100%;object-fit:cover;filter:brightness(.7)}
-.story-copy{padding:clamp(40px,7vw,100px);display:flex;flex-direction:column;justify-content:center}
-.story-copy h2{font:400 clamp(35px,5vw,60px) "Playfair Display",serif}
-.story-copy p{font-size:13px;color:#bdc2bc;line-height:1.9;margin-top:22px}
-.values{padding:90px 5vw;background:#f4f1ea;color:#111}
-.value-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:35px;text-align:center}
-.value-grid article{padding:15px}
-.value-icon{color:#987744;font-size:28px;margin-bottom:16px}
-.value-grid h3{font:400 24px "Playfair Display",serif}
-.value-grid p{font-size:12px;color:#696b66;line-height:1.8;margin-top:12px}
-.contact{padding:90px 5vw;background:#071b19;display:grid;grid-template-columns:1fr 1fr;gap:55px}
-.contact h2{font:400 clamp(36px,5vw,58px) "Playfair Display",serif}
-.contact p{color:#b6c0ba;font-size:13px;line-height:1.8;margin-top:18px;max-width:430px}
-.contact-details{margin-top:30px;font-size:12px;line-height:2;color:#e5e1d8}
-.contact-form{display:grid;gap:13px;align-content:center}
-.contact-form input,.contact-form textarea{width:100%;padding:15px 2px;background:transparent;border:0;border-bottom:1px solid #52625c;color:#fff;font:12px "DM Sans",sans-serif;outline:none}
-.contact-form input:focus,.contact-form textarea:focus{border-color:var(--gold)}
-.contact-form textarea{resize:vertical;min-height:100px}
-.contact-form button{justify-self:start;margin-top:10px}
-footer{background:#03110f;padding:32px 5vw;color:#a6b0aa;font-size:10px;letter-spacing:.05em;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-footer strong{color:#fff;letter-spacing:.25em;font-weight:400}
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:760px){
- .navbar{height:60px;padding:0 20px}.nav-right{font-size:8px;letter-spacing:.12em}.brand{font-size:16px;letter-spacing:.23em}
- .hero{min-height:610px;height:88svh}.hero h1{font-size:clamp(47px,13vw,78px)}.hero-sub{font-size:10px;line-height:1.7}.side-mark{right:15px;font-size:8px}
- .intro{min-height:340px;padding:80px 24px}.intro p{font-size:12px}
- .feature,.story{grid-template-columns:1fr}.feature-image{min-height:290px;max-height:380px}.feature-copy{padding:48px 25px 58px}.feature-copy h2{font-size:44px}
- .collections{padding:75px 18px}.collection-grid{grid-template-columns:1fr;gap:12px}.collection-card{height:390px}
- .story-photo{min-height:300px;max-height:380px}.story-copy{padding:50px 25px 60px}
- .values{padding:70px 20px}.value-grid{grid-template-columns:1fr;gap:10px}.value-grid article{padding:18px}
- .contact{grid-template-columns:1fr;padding:70px 24px;gap:30px}footer{padding:28px 22px;flex-direction:column}
+button{font:inherit;color:inherit}
+.topbar{height:76px;position:fixed;z-index:20;top:0;left:0;right:0;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 4.5vw;background:linear-gradient(180deg,rgba(4,25,21,.92),rgba(4,25,21,.46),transparent);transition:background .35s}
+.topbar.scrolled{background:rgba(4,20,17,.94);backdrop-filter:blur(14px)}
+.menu-toggle{width:34px;height:34px;border:0;background:none;display:flex;flex-direction:column;justify-content:center;gap:7px;cursor:pointer}
+.menu-toggle span{height:1px;width:26px;background:#eee8dc;display:block;transition:width .3s}
+.menu-toggle span:nth-child(2){width:18px}
+.menu-toggle:hover span:nth-child(2){width:26px}
+.wordmark{font:400 23px "DM Sans",sans-serif;letter-spacing:.38em;white-space:nowrap;padding-left:.38em}
+.wordmark b{font-weight:300;color:var(--gold)}
+.top-link{justify-self:end;text-transform:uppercase;font-size:9px;letter-spacing:.23em;display:flex;align-items:center;gap:13px}
+.top-link i{font-style:normal;color:var(--gold);font-size:17px}
+.panel{position:fixed;z-index:40;inset:0;background:rgba(3,18,15,.98);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .45s,visibility .45s;backdrop-filter:blur(16px)}
+.panel.open{opacity:1;visibility:visible}
+.panel-close{position:absolute;top:24px;left:4.5vw;background:none;border:0;font-size:32px;font-weight:200;cursor:pointer}
+.panel-nav{text-align:center;display:grid;gap:14px}
+.panel-nav a{font:clamp(35px,6vw,68px) "Italiana",serif;transition:color .25s}
+.panel-nav a:hover{color:var(--gold)}
+.panel-note{position:absolute;bottom:32px;font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:#9caaa3}
+.slide{position:relative;min-height:100svh;height:100svh;overflow:hidden;scroll-snap-align:start;isolation:isolate;background:#0a1110}
+.media,.veil{position:absolute;inset:0;width:100%;height:100%}
+.media{object-fit:cover;z-index:-2;transform:scale(1.015);animation:slowzoom 18s ease-in-out infinite alternate}
+.veil{z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.46),rgba(0,0,0,.12) 50%,rgba(0,0,0,.39)),linear-gradient(0deg,rgba(0,0,0,.53),transparent 45%,rgba(0,0,0,.23))}
+.hero .veil{background:linear-gradient(90deg,rgba(0,10,8,.56),rgba(0,0,0,.1) 60%,rgba(0,0,0,.3)),linear-gradient(0deg,rgba(0,0,0,.46),transparent 48%,rgba(0,0,0,.32))}
+.hero{display:grid;place-items:center;text-align:center}
+.hero-center{padding:90px 20px 50px;max-width:1000px;animation:fadeup 1.2s .15s both}
+.overline{font-size:9px;letter-spacing:.36em;text-transform:uppercase;color:#e0d2b6;margin-bottom:25px}
+.hero h1{font:400 clamp(58px,11.2vw,150px)/.88 "Italiana",serif;letter-spacing:.015em}
+.hero h1 span{display:block;color:var(--gold);font-size:.78em;letter-spacing:.12em;margin-top:16px}
+.hero-tag{font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.78);margin-top:31px}
+.centered{position:absolute;left:20px;right:20px;top:50%;transform:translateY(-43%);text-align:center;max-width:900px;margin:auto}
+.slide-label{font-size:9px;letter-spacing:.35em;text-transform:uppercase;color:#e0c797;margin-bottom:19px}
+.slide-title{font:400 clamp(55px,10vw,125px)/.9 "Italiana",serif;letter-spacing:.015em}
+.slide-title.small{font-size:clamp(46px,7.4vw,94px)}
+.view-link{margin:34px auto 0;display:inline-flex;align-items:center;gap:25px;padding:13px 17px;border:1px solid rgba(255,255,255,.38);background:rgba(5,15,13,.22);font-size:9px;letter-spacing:.2em;text-transform:uppercase;transition:background .3s,border-color .3s,color .3s}
+.view-link span{font-size:17px;color:var(--gold);transition:transform .3s}
+.view-link:hover{background:var(--ivory);border-color:var(--ivory);color:#101513}
+.view-link:hover span{transform:translateX(4px)}
+.slide-index{position:absolute;right:4.4vw;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:12px;writing-mode:vertical-rl;font-size:9px;letter-spacing:.24em;color:rgba(255,255,255,.68)}
+.slide-index:before{content:"";height:72px;width:1px;background:var(--gold);display:block}
+.bottom-caption{position:absolute;bottom:34px;left:4.5vw;font-size:9px;letter-spacing:.23em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+.scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-size:8px;letter-spacing:.25em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:13px;color:rgba(255,255,255,.75)}
+.scroll-cue:after{content:"";height:28px;width:1px;background:var(--gold)}
+.hero .side-brand{position:absolute;right:4.5vw;bottom:36px;font-size:8px;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.62)}
+/* Individual cinematic image treatments */
+.stone .veil{background:linear-gradient(90deg,rgba(0,0,0,.15),rgba(0,0,0,.2)),linear-gradient(0deg,rgba(0,0,0,.38),transparent 70%)}
+.art .veil{background:rgba(5,8,8,.42)}
+.material .veil{background:linear-gradient(90deg,rgba(0,0,0,.05),rgba(0,0,0,.22)),linear-gradient(0deg,rgba(0,0,0,.4),transparent 65%)}
+.legacy .veil{background:linear-gradient(90deg,rgba(0,0,0,.25),rgba(0,0,0,.05)),linear-gradient(0deg,rgba(0,0,0,.38),transparent 60%)}
+footer{min-height:230px;background:#043b33;padding:65px 5vw 28px;display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:35px;align-items:start}
+.footer-brand{font-size:17px;letter-spacing:.3em}
+.footer-brand span{display:block;font:10px "DM Sans",sans-serif;letter-spacing:.2em;color:#c6b184;margin-top:12px}
+.footer-col{border-left:1px solid rgba(255,255,255,.2);padding-left:24px;min-height:90px}
+.footer-col h4{font-size:9px;letter-spacing:.18em;text-transform:uppercase;font-weight:400;color:#d6c39c;margin-bottom:16px}
+.footer-col a,.footer-col p{display:block;font-size:11px;line-height:2.15;color:rgba(255,255,255,.77)}
+.copyright{grid-column:1/-1;display:flex;justify-content:space-between;gap:20px;border-top:1px solid rgba(255,255,255,.12);padding-top:22px;font-size:9px;color:rgba(255,255,255,.62);letter-spacing:.08em}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .8s,transform .8s}
+.reveal.in{opacity:1;transform:translateY(0)}
+@keyframes slowzoom{from{transform:scale(1.015)}to{transform:scale(1.09)}}
+@keyframes fadeup{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:700px){
+ .topbar{height:62px;padding:0 20px}.wordmark{font-size:16px;letter-spacing:.24em}.top-link{font-size:8px;letter-spacing:.12em;gap:7px}
+ .slide{min-height:86svh;height:86svh}.hero{min-height:100svh;height:100svh}
+ .overline{font-size:8px;letter-spacing:.24em;margin-bottom:21px}.hero h1{font-size:clamp(54px,15vw,94px)}.hero-tag{font-size:8px;letter-spacing:.2em;line-height:1.8}
+ .slide-title{font-size:clamp(53px,14vw,88px)}.slide-title.small{font-size:clamp(42px,11vw,68px)}
+ .slide-label{font-size:8px;letter-spacing:.25em}.view-link{margin-top:27px;padding:12px 14px;font-size:8px}
+ .slide-index{right:15px;font-size:8px}.bottom-caption{left:20px;bottom:22px;font-size:8px;letter-spacing:.13em}
+ .scroll-cue{bottom:18px;font-size:7px}.hero .side-brand{right:20px;bottom:24px;font-size:7px}
+ footer{grid-template-columns:1fr 1fr;padding:45px 22px 25px;gap:30px 18px}
+ .footer-col{padding-left:14px}.footer-brand{font-size:14px}.copyright{flex-direction:column;gap:9px}
 }
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<header class="navbar">
-  <button class="menu-btn" id="menuOpen" aria-label="Open navigation"><i></i><i></i><i></i></button>
-  <a class="brand" href="#home" aria-label="Sai Granito India home">SAI <span>GRANITO</span></a>
-  <a class="nav-right" href="#contact">Enquire <span style="color:var(--gold)">↗</span></a>
+<header class="topbar" id="topbar">
+  <button class="menu-toggle" id="menuOpen" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <a class="wordmark" href="#home" aria-label="Sai Granito home">SAI <b>GRANITO</b></a>
+  <a class="top-link" href="#contact">Enquire <i>↗</i></a>
 </header>
 
-<nav class="menu-panel" id="menuPanel" aria-hidden="true">
-  <button class="menu-close" id="menuClose" aria-label="Close navigation">×</button>
-  <div class="menu-links">
-    <a href="#home">Home</a><a href="#about">Our Story</a><a href="#collections">Collections</a><a href="#craft">Craft & Technology</a><a href="#values">Our Values</a><a href="#contact">Contact</a>
-  </div>
-</nav>
+<div class="panel" id="panel" aria-hidden="true">
+  <button class="panel-close" id="menuClose" aria-label="Close menu">×</button>
+  <nav class="panel-nav">
+    <a href="#home">Home</a><a href="#mastery">Mastery</a><a href="#stone">Stone</a><a href="#art">Art</a><a href="#material">Material</a><a href="#legacy">Legacy</a><a href="#contact">Contact</a>
+  </nav>
+  <div class="panel-note">Sai Granito India · Heda Group</div>
+</div>
 
 <main>
-<section class="hero" id="home">
-  <!-- Add your own factory/stone video as hero.mp4 in the same folder. -->
-  <video class="hero-media" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2000&q=85">
-    <source src="hero.mp4" type="video/mp4">
-  </video>
-  <div class="hero-shade"></div>
-  <div class="hero-content">
-    <div class="eyebrow">Kishangarh · Rajasthan · Since 1982</div>
-    <h1>THE ART OF<br><em>STONE.</em></h1>
-    <p class="hero-sub">A LEGACY OF MATERIAL. A VISION OF TIMELESS BEAUTY.</p>
-    <div class="hero-actions"><a class="btn primary" href="#collections">Explore Collections</a><a class="btn" href="#about">Discover Our Story</a></div>
-  </div>
-  <div class="side-mark">HEda Group · India</div>
-  <a class="scroll-note" href="#about">Scroll to discover</a>
-</section>
+  <section class="slide hero" id="home">
+    <video class="media" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2200&q=90">
+      <source src="hero.mp4" type="video/mp4">
+    </video>
+    <div class="veil"></div>
+    <div class="hero-center">
+      <div class="overline">Kishangarh · Rajasthan</div>
+      <h1>THE ART OF<span>STONE</span></h1>
+      <div class="hero-tag">Nature’s masterpiece. Our legacy.</div>
+    </div>
+    <a class="scroll-cue" href="#mastery">Discover</a>
+    <div class="side-brand">A Heda Group Company</div>
+  </section>
 
-<section class="intro" id="about">
-  <div class="intro-inner reveal">
-    <div class="kicker">A legacy carved in stone</div>
-    <h2>Enduring by Nature.<br>Exceptional by Design.</h2>
-    <p>Born in Kishangarh, Rajasthan, Sai Granito India is part of the Heda Group legacy envisioned by Shri Bal Mukund ji Heda in 1982. We bring together the character of natural stone and a lasting commitment to quality.</p>
-    <a class="text-link" href="#craft">The Sai Granito story <span>↗</span></a>
-  </div>
-</section>
+  <section class="slide mastery" id="mastery">
+    <img class="media" src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=2200&q=90" alt="Sculptural contemporary architecture" loading="lazy">
+    <div class="veil"></div>
+    <div class="centered reveal"><div class="slide-label">A legacy of excellence</div><h2 class="slide-title">MASTERY</h2><a class="view-link" href="#legacy">View Details <span>↗</span></a></div>
+    <div class="slide-index">01 / 05</div><div class="bottom-caption">Crafted through experience</div>
+  </section>
 
-<section class="feature" id="craft">
-  <div class="feature-image"><img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1400&q=85" alt="Stone slabs and natural surface detail" loading="lazy"></div>
-  <div class="feature-copy reveal">
-    <div class="kicker">Precision meets nature</div>
-    <h2>Crafted with<br>Purpose.</h2>
-    <p>From carefully selected stone to considered processing, every surface tells a story shaped by nature and refined by human expertise.</p>
-    <a class="text-link" href="#contact">Explore our capabilities <span>↗</span></a>
-  </div>
-</section>
+  <section class="slide stone" id="stone">
+    <img class="media" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2200&q=90" alt="Refined stone surfaces in a luxury interior" loading="lazy">
+    <div class="veil"></div>
+    <div class="centered reveal"><div class="slide-label">Rare by nature</div><h2 class="slide-title">STONE</h2><a class="view-link" href="#collections">View Details <span>↗</span></a></div>
+    <div class="slide-index">02 / 05</div><div class="bottom-caption">A world of natural surfaces</div>
+  </section>
 
-<section class="collections" id="collections">
-  <div class="section-heading reveal">
-    <div class="kicker">The material library</div>
-    <h2>Rare by Nature.</h2>
-    <p>Discover surfaces with their own character, movement and depth.</p>
-  </div>
-  <div class="collection-grid">
-    <a class="collection-card" href="#contact"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85" alt="Elegant marble interior" loading="lazy"><div class="collection-info"><small>01 · Timeless elegance</small><h3>Marble</h3><span>Discover the collection ↗</span></div></a>
-    <a class="collection-card" href="#contact"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1000&q=85" alt="Modern interior with stone finishes" loading="lazy"><div class="collection-info"><small>02 · Strength in detail</small><h3>Granite</h3><span>Discover the collection ↗</span></div></a>
-    <a class="collection-card" href="#contact"><img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=85" alt="Contemporary luxury stone design" loading="lazy"><div class="collection-info"><small>03 · Distinctive surfaces</small><h3>Exotic Stones</h3><span>Discover the collection ↗</span></div></a>
-  </div>
-</section>
+  <section class="slide art" id="art">
+    <img class="media" src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2200&q=90" alt="Artful architectural material composition" loading="lazy">
+    <div class="veil"></div>
+    <div class="centered reveal"><div class="slide-label">Exploring the lexicon</div><h2 class="slide-title">ART</h2><a class="view-link" href="#craft">View Details <span>↗</span></a></div>
+    <div class="slide-index">03 / 05</div><div class="bottom-caption">Where material becomes expression</div>
+  </section>
 
-<section class="story">
-  <div class="story-photo"><img src="https://images.unsplash.com/photo-1503387762-592dead58ef4?auto=format&fit=crop&w=1400&q=85" alt="Architectural craftsmanship and materials" loading="lazy"></div>
-  <div class="story-copy reveal">
-    <div class="kicker">Four decades of perspective</div>
-    <h2>Rooted in heritage.<br>Made for what’s next.</h2>
-    <p>Since 1982, our journey has been guided by a simple belief: great materials do more than finish a space — they define it. Our Kishangarh roots continue to shape the way we approach stone, service and lasting relationships.</p>
-    <a class="text-link" href="#contact">Build with Sai Granito <span>↗</span></a>
-  </div>
-</section>
+  <section class="slide material" id="material">
+    <img class="media" src="https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=2200&q=90" alt="Natural stone and material textures" loading="lazy">
+    <div class="veil"></div>
+    <div class="centered reveal"><div class="slide-label">The language of surfaces</div><h2 class="slide-title small">MATERIAL<br>ALCHEMISTS</h2><a class="view-link" href="#collections">View Details <span>↗</span></a></div>
+    <div class="slide-index">04 / 05</div><div class="bottom-caption">Nature, selected and refined</div>
+  </section>
 
-<section class="values" id="values">
-  <div class="section-heading reveal"><div class="kicker">The principles behind every surface</div><h2>Made to Matter.</h2></div>
-  <div class="value-grid">
-    <article class="reveal"><div class="value-icon">✳</div><h3>Quality First</h3><p>A considered approach to material selection, finish and consistency.</p></article>
-    <article class="reveal"><div class="value-icon">⌘</div><h3>Technology & Craft</h3><p>Modern processing guided by an appreciation for natural character.</p></article>
-    <article class="reveal"><div class="value-icon">∞</div><h3>Relationships That Last</h3><p>Built on trust, dependable service and a long-term view.</p></article>
-  </div>
-</section>
+  <section class="slide legacy" id="legacy">
+    <img class="media" src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=2200&q=90" alt="Timeless architecture at golden hour" loading="lazy">
+    <div class="veil"></div>
+    <div class="centered reveal"><div class="slide-label">Since 1982 · Kishangarh</div><h2 class="slide-title small">A LIVING<br>LEGACY</h2><a class="view-link" href="#contact">View Details <span>↗</span></a></div>
+    <div class="slide-index">05 / 05</div><div class="bottom-caption">Sai Granito India · Heda Group</div>
+  </section>
 
-<section class="contact" id="contact">
-  <div class="reveal">
-    <div class="kicker">Start a conversation</div>
-    <h2>Let’s find your<br>perfect surface.</h2>
-    <p>Tell us what you’re creating. Our team can help you explore the right material for your project.</p>
-    <div class="contact-details">Sai Granito India · Heda Group<br>Kishangarh, Rajasthan, India<br><span style="color:var(--gold)">Established 1982</span></div>
-  </div>
-  <form class="contact-form" id="enquiryForm">
-    <input name="name" placeholder="YOUR NAME" aria-label="Your name" required>
-    <input name="email" type="email" placeholder="YOUR EMAIL" aria-label="Your email" required>
-    <input name="phone" type="tel" placeholder="PHONE NUMBER" aria-label="Phone number">
-    <textarea name="message" placeholder="TELL US ABOUT YOUR PROJECT" aria-label="Message" required></textarea>
-    <button class="btn primary" type="submit">Prepare Enquiry ↗</button>
-    <small style="color:#9ca9a2;font-size:10px;line-height:1.6">This demo opens your email app with the enquiry details. Connect your preferred form service for direct submissions.</small>
-  </form>
-</section>
+  <section class="slide" id="collections" style="min-height:72svh;height:72svh">
+    <img class="media" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2200&q=90" alt="Elegant marble interior" loading="lazy">
+    <div class="veil"></div>
+    <div class="centered reveal"><div class="slide-label">Explore the collections</div><h2 class="slide-title small">FIND YOUR<br>STONE.</h2><a class="view-link" href="#contact">View Collections <span>↗</span></a></div>
+    <div class="slide-index">COLLECTIONS</div>
+  </section>
+
+  <section class="slide" id="craft" style="min-height:66svh;height:66svh">
+    <img class="media" src="https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=2200&q=90" alt="Stone craftsmanship detail" loading="lazy">
+    <div class="veil"></div>
+    <div class="centered reveal"><div class="slide-label">Precision · Passion · Permanence</div><h2 class="slide-title small">BEYOND<br>THE SURFACE</h2><a class="view-link" href="#contact">View Details <span>↗</span></a></div>
+  </section>
 </main>
-<footer><span>© <span id="year"></span> Sai Granito India · Heda Group</span><strong>SAI GRANITO</strong><span>Designed with intention · Kishangarh, India</span></footer>
+
+<footer id="contact">
+  <div class="footer-brand">SAI GRANITO<span>THE ART OF STONE</span></div>
+  <div class="footer-col"><h4>Explore</h4><a href="#mastery">Mastery</a><a href="#stone">Stone</a><a href="#art">Art</a><a href="#material">Material</a></div>
+  <div class="footer-col"><h4>Discover</h4><a href="#legacy">Our Legacy</a><a href="#collections">Collections</a><a href="#craft">Craft & Technology</a></div>
+  <div class="footer-col"><h4>Connect</h4><p>Kishangarh, Rajasthan<br>India</p><a href="mailto:info@saigranitoindia.com">Enquire ↗</a></div>
+  <div class="copyright"><span>© <span id="year"></span> Sai Granito India. All rights reserved.</span><span>A Heda Group Company · Designed with intention</span></div>
+</footer>
 
 <script>
-const panel = document.getElementById('menuPanel');
-const openBtn = document.getElementById('menuOpen');
-const closeBtn = document.getElementById('menuClose');
-function setMenu(open){panel.classList.toggle('open',open);panel.setAttribute('aria-hidden',String(!open));document.body.style.overflow=open?'hidden':'';}
-openBtn.addEventListener('click',()=>setMenu(true));
-closeBtn.addEventListener('click',()=>setMenu(false));
-panel.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>setMenu(false)));
+const panel=document.getElementById('panel');
+const setMenu=open=>{panel.classList.toggle('open',open);panel.setAttribute('aria-hidden',String(!open));document.body.style.overflow=open?'hidden':''};
+document.getElementById('menuOpen').addEventListener('click',()=>setMenu(true));
+document.getElementById('menuClose').addEventListener('click',()=>setMenu(false));
+panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
+const bar=document.getElementById('topbar');
+window.addEventListener('scroll',()=>bar.classList.toggle('scrolled',window.scrollY>80),{passive:true});
 document.getElementById('year').textContent=new Date().getFullYear();
-const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');observer.unobserve(e.target)}}),{threshold:.18});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-document.getElementById('enquiryForm').addEventListener('submit',e=>{
-  e.preventDefault();
-  const d=new FormData(e.currentTarget);
-  const subject=encodeURIComponent('Sai Granito India — Project Enquiry');
-  const body=encodeURIComponent(`Name: ${d.get('name')}\nEmail: ${d.get('email')}\nPhone: ${d.get('phone')}\n\nProject details:\n${d.get('message')}`);
-  window.location.href=`mailto:?subject=${subject}&body=${body}`;
-});
 </script>
 </body>
 </html>
