@@ -120,6 +120,19 @@ footer{min-height:230px;background:#043b33;padding:65px 5vw 28px;display:grid;gr
 .detail-gallery{display:grid;grid-template-columns:1.15fr .85fr;gap:15px;margin-top:30px}
 .detail-gallery img{width:100%;height:390px;object-fit:cover;filter:brightness(.86)}
 .detail-gallery img:nth-child(2){height:310px;margin-top:80px}
+.detail-gallery-wrap{margin-top:30px}
+.detail-gallery{display:flex;gap:16px;overflow-x:auto;scroll-behavior:smooth;scroll-snap-type:x mandatory;scrollbar-width:none}
+.detail-gallery::-webkit-scrollbar{display:none}
+.detail-gallery .gallery-slide{flex:0 0 calc(50% - 8px);position:relative;scroll-snap-align:start;overflow:hidden;background:#101815}
+.detail-gallery .gallery-slide img{display:block;width:100%;height:390px;object-fit:cover;filter:brightness(.88);transition:transform .8s}
+.detail-gallery .gallery-slide:hover img{transform:scale(1.035)}
+.detail-gallery .gallery-slide:nth-child(even) img{height:310px;margin-top:80px}
+.gallery-caption{position:absolute;left:18px;right:18px;bottom:18px;padding-top:12px;border-top:1px solid rgba(201,170,112,.65);font-size:9px;letter-spacing:.17em;text-transform:uppercase;color:#f3eee5}
+.gallery-controls{display:flex;align-items:center;justify-content:space-between;margin-top:22px}
+.gallery-count{font-size:9px;letter-spacing:.2em;color:#aeb8b0}
+.gallery-buttons{display:flex;gap:10px}
+.gallery-buttons button{width:42px;height:42px;border:1px solid rgba(201,170,112,.55);border-radius:50%;background:transparent;color:var(--ivory);font-size:18px;cursor:pointer;transition:background .25s,color .25s}
+.gallery-buttons button:hover{background:var(--gold);color:#061714}
 .detail-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:55px}
 .detail-fact{border-top:1px solid var(--gold);padding-top:17px}
 .detail-fact strong{font:400 24px "Italiana",serif;display:block;margin-bottom:10px}
@@ -127,12 +140,15 @@ footer{min-height:230px;background:#043b33;padding:65px 5vw 28px;display:grid;gr
 .detail-contact{margin-top:70px;padding:32px;border:1px solid rgba(201,170,112,.45);display:flex;justify-content:space-between;align-items:center;gap:20px}
 .detail-contact h3{font:400 30px "Italiana",serif}
 .detail-contact a{font-size:9px;letter-spacing:.15em;text-transform:uppercase;border-bottom:1px solid var(--gold);padding-bottom:9px}
+#collections .centered,#craft .centered{top:50%;transform:translateY(-50%);width:calc(100% - 48px)}
+#collections .slide-title,#craft .slide-title{line-height:.98}
 @media(max-width:700px){
+ #collections .centered,#craft .centered{top:48%;transform:translateY(-48%);width:calc(100% - 44px)}
  .hero h1{font-size:clamp(34px,10vw,64px);letter-spacing:.09em}.hero h1 span{letter-spacing:.09em}
  .detail-top{height:62px;padding:0 20px}.detail-wordmark{font-size:11px}
  .detail-hero{min-height:52vh;padding:35px 24px}.detail-hero h2{font-size:clamp(48px,14vw,76px)}
  .detail-content{padding:55px 24px 65px}.detail-intro{grid-template-columns:1fr;gap:20px;padding-bottom:38px}
- .detail-gallery{grid-template-columns:1fr;gap:12px}.detail-gallery img,.detail-gallery img:nth-child(2){height:260px;margin:0}
+ .detail-gallery{gap:12px}.detail-gallery .gallery-slide{flex-basis:88%}.detail-gallery .gallery-slide img,.detail-gallery .gallery-slide:nth-child(even) img{height:260px;margin:0}.gallery-controls{gap:12px}.gallery-caption{font-size:8px}
  .detail-facts{grid-template-columns:1fr;gap:25px;margin-top:38px}
  .detail-contact{padding:24px;align-items:flex-start;flex-direction:column}.detail-contact h3{font-size:26px}
 }
@@ -143,7 +159,7 @@ footer{min-height:230px;background:#043b33;padding:65px 5vw 28px;display:grid;gr
 <header class="topbar" id="topbar">
   <button class="menu-toggle" id="menuOpen" aria-label="Open menu"><span></span><span></span><span></span></button>
   <a class="wordmark" href="#home" aria-label="Sai Granito home">SAI <b>GRANITO</b></a>
-  <a class="top-link" href="#contact">Enquire <i>↗</i></a>
+  <span aria-hidden="true"></span>
 </header>
 
 <div class="panel" id="panel" aria-hidden="true">
@@ -195,13 +211,13 @@ footer{min-height:230px;background:#043b33;padding:65px 5vw 28px;display:grid;gr
     
   </section>
 
-  <section class="slide" id="collections" style="min-height:72svh;height:72svh"><video class="media" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="three.mp4" type="video/mp4"></video>
+  <section class="slide" id="collections"><video class="media" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="three.mp4" type="video/mp4"></video>
     <div class="veil"></div>
     <div class="centered reveal"><h2 class="slide-title small">FIND YOUR<br>STONE.</h2><button class="view-link detail-trigger" type="button" data-detail="collections">Discover <span>↗</span></button></div>
     
   </section>
 
-  <section class="slide" id="craft" style="min-height:66svh;height:66svh"><video class="media" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="four.mp4" type="video/mp4"></video>
+  <section class="slide" id="craft"><video class="media" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="four.mp4" type="video/mp4"></video>
     <div class="veil"></div>
     <div class="centered reveal"><h2 class="slide-title small">BEYOND<br>THE SURFACE</h2><button class="view-link detail-trigger" type="button" data-detail="craft">Discover <span>↗</span></button></div>
   </section>
@@ -243,49 +259,49 @@ const detailData = {
     heading:"The discipline behind every surface.",
     text:"Since 1982, Sai Granito India has grown from a clear vision into a name shaped by experience, material understanding and a commitment to refinement. Our approach brings together careful selection, modern processing and an enduring respect for the natural character of stone.",
     facts:[["Selection","Material considered for its character and suitability."],["Precision","Finishing guided by care and consistency."],["Experience","A legacy shaped over decades."]],
-    images:["https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1400&q=85","https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1200&q=85"], video:"two.mp4"
+    images:[['https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85','Architectural precision'],['https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1400&q=85','Careful material selection'],['https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=85','Finishing with intention']], video:"two.mp4"
   },
   stone: {
     title:"STONE", kicker:"The natural collection",
     heading:"Nature, unrepeatable by design.",
     text:"Every block of natural stone carries a pattern formed over time. From expressive marble to durable granite and distinctive imported surfaces, each material brings its own movement, tone and personality to architectural spaces. Choose by colour, veining, finish and the feeling you want a space to express.",
     facts:[["Marble","Expressive veining and timeless elegance."],["Granite","Strength, depth and distinctive pattern."],["Italian & exotic","Individual colours and rare visual character."]],
-    images:["https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85","https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=85"], video:"three.mp4"
+    images:[['https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=85','Marble and natural movement'],['https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85','Stone in architectural spaces'],['https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=85','Surface, tone and texture']], video:"three.mp4"
   },
   art: {
     title:"ART", kicker:"Stone as a creative medium",
     heading:"Where material becomes expression.",
     text:"Stone is more than a building material: it is a medium for designers, architects and craftspeople. Veining, texture, light and proportion come together to create spaces that feel individual and enduring. From a dramatic feature wall to a quiet architectural detail, the material can become part of the story.",
     facts:[["Natural character","Every slab has its own visual language."],["Design expression","A considered role for stone in a space."],["Craft & detail","The finish completes the composition."]],
-    images:["https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=85","https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=85"], video:"four.mp4"
+    images:[['https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=85','Sculptural form and proportion'],['https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1400&q=85','Architecture as art'],['https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=85','Quiet luxury in detail']], video:"four.mp4"
   },
   material: {
     title:"MATERIAL ALCHEMISTS", kicker:"A closer look at surfaces",
     heading:"A study in texture, tone and finish.",
     text:"A surface changes how a room feels. Polished, honed and textured finishes respond to light in different ways, while colour and veining can create calm, drama or a strong architectural statement. The right selection begins with how a space will be used and experienced.",
     facts:[["Surface & light","Understand reflection, depth and tone."],["Texture & touch","Choose a finish that suits the design."],["Made for the space","Balance aesthetic and practical needs."]],
-    images:["https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=1400&q=85","https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85"], video:"five.mp4"
+    images:[['https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=1400&q=85','Polished surface and light'],['https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85','Ivory tones and natural pattern'],['https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=85','Texture, depth and finish']], video:"five.mp4"
   },
   legacy: {
     title:"A LIVING LEGACY", kicker:"Since 1982 · Kishangarh, Rajasthan",
     heading:"A story rooted in Kishangarh.",
     text:"Sai Granito India traces its beginnings to 1982, when Shri Bal Mukund ji Heda envisioned a company dedicated to excellence in stone. Based in Kishangarh, Rajasthan, and part of the Heda Group, the company continues to build on that foundation of quality, vision and long-term relationships.",
     facts:[["1982","The beginning of the Sai Granito journey."],["Kishangarh","A home in Rajasthan’s marble city."],["Heda Group","A legacy of vision and enterprise."]],
-    images:["https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1400&q=85","https://images.unsplash.com/photo-1503387762-592dead58ef4?auto=format&fit=crop&w=1200&q=85"], video:"two.mp4"
+    images:[['https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1400&q=85','A legacy shaped by architecture'],['https://images.unsplash.com/photo-1503387762-592dead58ef4?auto=format&fit=crop&w=1400&q=85','Enduring design language'],['https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=85','Built to stand the test of time']], video:"two.mp4"
   },
   collections: {
     title:"THE COLLECTIONS", kicker:"Explore natural stone",
     heading:"Find the stone that defines your space.",
     text:"Marble offers distinctive veining and timeless elegance; granite brings strength and character; Italian and exotic stones introduce unique colours, patterns and visual depth. Share your project requirements with the team to explore suitable materials and available selections.",
     facts:[["Marble","Distinctive movement and classic appeal."],["Granite","Characterful surfaces with enduring strength."],["Italian & exotic","Memorable patterns and colours."]],
-    images:["https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85","https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=85"], video:"three.mp4"
+    images:[['https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=85','Marble and expressive veining'],['https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85','Natural stone for interiors'],['https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=85','Explore tones and finishes']], video:"three.mp4"
   },
   craft: {
     title:"BEYOND THE SURFACE", kicker:"Craft & technology",
     heading:"Precision that respects nature.",
     text:"Great stonework starts with the right material and continues through careful cutting, finishing and quality checks. Technology helps achieve consistency, while skilled attention protects the individuality that makes every natural slab different.",
     facts:[["Processing","Careful steps from slab to finished surface."],["Finishing","Details that influence look and feel."],["Quality","Attention to consistency and presentation."]],
-    images:["https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1400&q=85","https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=85"], video:"four.mp4"
+    images:[['https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1400&q=85','Precision in every stage'],['https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=85','The craft of finishing'],['https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1400&q=85','Technology meets design']], video:"four.mp4"
   }
 };
 const detailView=document.getElementById('detailView');
@@ -299,12 +315,22 @@ const openDetail=(key)=>{
     </section>
     <section class="detail-content">
       <div class="detail-intro"><h3>${d.heading}</h3><p>${d.text}</p></div>
-      <div class="detail-gallery"><img src="${d.images[0]}" alt="${d.title} — natural stone and architecture" loading="lazy"><img src="${d.images[1]}" alt="${d.title} — material detail" loading="lazy"></div>
+      <div class="detail-gallery-wrap">
+        <div class="detail-gallery" id="detailGallery">${d.images.map((img,i)=>`<figure class="gallery-slide"><img src="${img[0]}" alt="${d.title} — ${img[1]}" loading="lazy"><figcaption class="gallery-caption">${String(i+1).padStart(2,"0")} / ${img[1]}</figcaption></figure>`).join("")}</div>
+        <div class="gallery-controls"><span class="gallery-count">A CLOSER LOOK · <span id="galleryCurrent">01</span> / ${String(d.images.length).padStart(2,"0")}</span><div class="gallery-buttons"><button type="button" id="galleryPrev" aria-label="Previous image">←</button><button type="button" id="galleryNext" aria-label="Next image">→</button></div></div>
+      </div>
       <div class="detail-facts">${d.facts.map(f=>`<div class="detail-fact"><strong>${f[0]}</strong><span>${f[1]}</span></div>`).join('')}</div>
       <div class="detail-contact"><h3>Have a project in mind?</h3><a href="#contact" class="detail-enquire">Enquire with Sai Granito ↗</a></div>
     </section>`;
   detailView.classList.add('open'); detailView.setAttribute('aria-hidden','false');
   document.body.style.overflow='hidden'; detailView.scrollTop=0;
+  const gallery=document.getElementById('detailGallery');
+  const current=document.getElementById('galleryCurrent');
+  const slides=[...gallery.querySelectorAll('.gallery-slide')];
+  const goTo=(dir)=>{const step=slides[0].getBoundingClientRect().width+16;gallery.scrollBy({left:dir*step,behavior:'smooth'});};
+  document.getElementById('galleryPrev').addEventListener('click',()=>goTo(-1));
+  document.getElementById('galleryNext').addEventListener('click',()=>goTo(1));
+  gallery.addEventListener('scroll',()=>{const step=slides[0].getBoundingClientRect().width+16;const index=Math.min(slides.length,Math.max(1,Math.round(gallery.scrollLeft/step)+1));current.textContent=String(index).padStart(2,'0');},{passive:true});
   history.pushState({detail:key},'',`#detail-${key}`);
 };
 const closeDetail=()=>{
